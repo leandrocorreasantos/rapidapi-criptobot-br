@@ -1,2 +1,2 @@
-# rapidapi_criptobot_br
+# RapidAPI Criptobot-BR
 Python class to use the criptobot-br application
