@@ -2,7 +2,7 @@ import requests
 import json
 
 
-class RapidapiCriptobotBR:
+class Client:
     def __init__(self, rapidapi_key):
         self.base_url = 'https://criptobot-br.p.rapidapi.com'
         self.headers = {
