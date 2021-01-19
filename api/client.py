@@ -37,7 +37,6 @@ class Client:
             result = requests.get(url, params=params, headers=self.headers)
         except Exception as e:
             raise e
-
         return json.loads(result.content)
 
     def get_strategies(self):
@@ -84,7 +83,7 @@ class Client:
         if self.validate_timeframe(timeframe):
             endpoint = '/v1/strategy/{}/signal'.format(strategy)
             queryparams = {
-                'parameters': json.loads(parameters),
+                'parameters': parameters,
                 'exchange': self.exchange,
                 'symbol': self.symbol,
                 'timeframe': timeframe
