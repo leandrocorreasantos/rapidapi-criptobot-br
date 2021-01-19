@@ -1,37 +1,69 @@
-## Welcome to GitHub Pages
+## Overview
 
-You can use the [editor on GitHub](https://github.com/leandrocorreasantos/rapidapi_criptobot_br/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**RapidAPI CriptobotBR** é uma API desenvolvida para realizar a análise técnica de ativos das principais corretoras de **criptomoedas** do mundo. 
 
-### Markdown
+Sua função é obter os dados referentes a um determinado ativo e, utilizando bibliotecas de análise matemática e **inteligência artificial**, determinar o melhor momento para realizar a compra ou venda do ativo.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Essa API é voltada a desenvolvedores, que desejam desenvolver aplicações que utilizem esses dados para realização de operações financeiras com criptomoedas, como **trade** e **arbitragem**.
 
-```markdown
-Syntax highlighted code block
+Com a lógica da análise técnica concentrada na API, você pode dedicar-se a desenvolver outras funcionalidades para sua aplicação.
 
-# Header 1
-## Header 2
-### Header 3
+Você pode desenvolver sua própria integração com a API utilizando o conjunto de endpoints disponibilizados pelo marketplace RapidAPI. 
 
-- Bulleted
-- List
+Para ter acesso liberado aos endpoints, é necessário criar uma conta no site RapidAPI, criar uma aplicação e, em seguida, copiar o código de acesso da aplicação para ser enviado ao servidor em cada requisição.
 
-1. Numbered
-2. List
+Confira no manual [como criar um app no RapidAPI](https://docs.rapidapi.com/docs/add-a-new-app target='_blank').
 
-**Bold** and _Italic_ and `Code` text
+Essa biblioteca é dedicada a desenvolvedores Python e tem o intuito de facilitar a integração das aplicações à API de análise técnica **RapidAPI CriptobotBR**.
 
-[Link](url) and ![Image](src)
+
+## Instalação
+
+Você pode clonar o conteúdo do repositório para dentro da pasta principal de seu projeto utilizando o `git clone` (pacote PIP em desenvolvimento).
+
+```bash
+mkdir meu-projeto
+cd meu-projeto/
+git clone https://github.com/leandrocorreasantos/rapidapi_criptobot_br.git
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Basta, então, fazer o import da classe Client para sua aplicação
 
-### Jekyll Themes
+```python
+from rapidapi_criptobot_br.api.client import Client
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/leandrocorreasantos/rapidapi_criptobot_br/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Primeiros Passos
 
-### Support or Contact
+Exemplo de uso simples da biblioteca
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```python
+from rapidapi_criptobot_br.api.client import Client
+
+
+exchange = 'crex24'
+base = 'RDCT'
+quote = 'BTC'
+app_key = 'your-app-key'
+
+client = Client(app_key)
+client.set_exchange(exchange)
+client.set_market(base, quote)
+print(client.get_market_data())
+
+```
+
+## Métodos
+
+### Set Exchange
+### Set Market
+### Get Markets
+### Get Market Data
+### Get Strategies
+### Get Strategy
+### Get Strategy Parameters
+### Get Ticker
+### Validate Timeframe
+### Get Candles
+### Get Signal
