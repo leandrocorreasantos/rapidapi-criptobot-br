@@ -2,7 +2,7 @@ import requests
 import json
 
 
-class RapidapiCriptobotBR:
+class Client:
     def __init__(self, rapidapi_key):
         self.base_url = 'https://criptobot-br.p.rapidapi.com'
         self.headers = {
@@ -37,7 +37,6 @@ class RapidapiCriptobotBR:
             result = requests.get(url, params=params, headers=self.headers)
         except Exception as e:
             raise e
-
         return json.loads(result.content)
 
     def get_strategies(self):
@@ -84,7 +83,7 @@ class RapidapiCriptobotBR:
         if self.validate_timeframe(timeframe):
             endpoint = '/v1/strategy/{}/signal'.format(strategy)
             queryparams = {
-                'parameters': json.loads(parameters),
+                'parameters': parameters,
                 'exchange': self.exchange,
                 'symbol': self.symbol,
                 'timeframe': timeframe
