@@ -1,5 +1,5 @@
 # RapidAPI Criptobot-BR
-Classe Python para utilizar a API RapidAPI CriptobotBR.
+Classe Python para utilizar a API RapidAPI CriptobotBR..
 
 ## Overview
 
